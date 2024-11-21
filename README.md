@@ -1,66 +1,94 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Cotizaciones
 
-## About Laravel
+Este es un proyecto desarrollado para gestionar cotizaciones de productos de manera interactiva y eficiente. Permite seleccionar clientes, agregar productos a un carrito y visualizar las compras realizadas por cliente. Está construido utilizando tecnologías modernas como **Laravel**, **Vue.js**, y **Tailwind CSS**, y aprovecha la integración de **Inertia.js** para una experiencia de usuario fluida.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Tecnologías utilizadas
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Backend
+- **Laravel 11.31**: Framework PHP para la gestión del backend.
+- **Inertia.js**: Proporciona una experiencia tipo SPA (Single Page Application) utilizando Laravel y Vue.js.
+- **PHP 8.2**: Versión mínima requerida para el proyecto.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Frontend
+- **Vue.js 3.5**: Para construir componentes interactivos con Composition API.
+- **Tailwind CSS 3.4**: Framework de utilidades CSS para diseño rápido y eficiente.
+- **Headless UI**: Componentes accesibles y sin estilos prediseñados.
 
-## Learning Laravel
+### Dependencias adicionales
+- **Axios**: Para realizar solicitudes HTTP.
+- **Ziggy**: Manejo de rutas de Laravel desde el frontend.
+- **Vite**: Empaquetador rápido para JavaScript y CSS.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Funcionalidades principales
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Pantalla de Cotización
+1. **Selección de cliente**: 
+   - Selecciona un cliente existente de la lista o crea uno nuevo.
+2. **Visualización de productos**:
+   - Muestra productos disponibles que se pueden agregar al carrito.
+3. **Carrito de compras**:
+   - Agrega productos con cantidades específicas al carrito.
+   - Guarda la compra al presionar el botón "Guardar".
+4. **Gestión de stock**:
+   - Solo se permite agregar productos disponibles.
+5. **Resumen total**:
+   - Muestra el total de la cotización en tiempo real.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Historial de Compras
+- Visualiza las compras realizadas agrupadas por cliente.
+- Detalla los productos comprados, cantidades y totales acumulados.
 
-## Laravel Sponsors
+## Requisitos previos
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **PHP >= 8.2**
+- **Node.js >= 16** y **npm**
+- **Composer**
+- **MySQL** o **MariaDB**
 
-### Premium Partners
+## Instalación y configuración
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/YohanRVV/cotizaciones.git
+   cd cotizaciones
+   ```
 
-## Contributing
+2. **Instalar dependencias:**
+   ```bash
+   composer install
+   npm install
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+3. **Configurar entorno:**
+   - Copia el archivo `.env.example` a `.env` y configura tu base de datos:
+     ```bash
+     cp .env.example .env
+     ```
+   - Genera una clave de aplicación:
+     ```bash
+     php artisan key:generate
+     ```
 
-## Code of Conduct
+4. **Importar la base de datos:**
+   - El archivo `database_dump.sql` en el repositorio contiene el esquema y datos iniciales de la base de datos. Impórtalo utilizando tu cliente MySQL (como DBeaver o phpMyAdmin):
+     ```sql
+     SOURCE /path/to/database_dump.sql;
+     ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+5. **Ejecutar el proyecto:**
+   - Compilar assets y ejecutar el servidor:
+     ```bash
+     npm run dev
+     php artisan serve
+     ```
 
-## Security Vulnerabilities
+6. **Abrir en el navegador:**
+   - Abre `http://localhost:8000` para acceder a la aplicación.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Uso de la aplicación
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. Selecciona un cliente de la lista o crea uno nuevo.
+2. Agrega productos al carrito con las cantidades deseadas.
+3. Guarda la compra desde el carrito.
+4. Visualiza el historial de compras desde el botón correspondiente.
